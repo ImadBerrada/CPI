@@ -1,0 +1,31 @@
+{
+  "name": "CPI WW Reims - Immatriculation Temporaire",
+  "short_name": "CPI WW",
+  "description": "Service professionnel d'immatriculation temporaire CPI WW à Reims et dans la Marne",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#1e40af",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/CPI WW-carte grise.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "categories": ["business", "productivity"],
+  "lang": "fr",
+  "scope": "/",
+  "id": "cpi-ww-reims"
+}

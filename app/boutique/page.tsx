@@ -2,36 +2,42 @@ import type { Metadata } from "next"
 import BoutiqueClient from "./boutiqueClient"
 
 export const metadata: Metadata = {
-  title: "Boutique CPI WW - Commandez votre Immatriculation Temporaire",
+  title: "Boutique Carte Grise & CPI WW - Commandez en Ligne Reims",
   description:
-    "Commandez votre certificat CPI WW en ligne. 3 formules disponibles : CPI WW (89€), CPI WW + Plaques (149€), Immatriculation Définitive (249€). Traitement 24-48h.",
+    "Commandez votre carte grise et certificat CPI WW en ligne à Reims. 3 formules : CPI WW (79.95€), CPI WW + Plaques (149€), Immatriculation Définitive (249€). Traitement 24-48h.",
   keywords: [
+    "commander carte grise",
     "commander CPI WW",
+    "carte grise en ligne",
+    "prix carte grise",
     "prix immatriculation temporaire",
     "plaques WW",
     "immatriculation définitive",
+    "boutique carte grise",
     "boutique en ligne",
+    "carte grise Reims",
+    "service carte grise",
   ],
   openGraph: {
-    title: "Boutique CPI WW - Commandez votre Immatriculation",
-    description: "3 formules d'immatriculation disponibles. Traitement rapide 24-48h. Prix transparents.",
-    url: "https://cpi-ww.fr/boutique",
+    title: "Boutique Carte Grise & CPI WW - Commandez en Ligne Reims",
+    description: "3 formules carte grise et immatriculation disponibles à Reims. Traitement rapide 24-48h. Prix transparents.",
+    url: "https://www.bureau-immatriculation.fr/boutique",
     images: [
       {
         url: "/european-car-registration-office-professional.jpg",
         width: 1200,
         height: 630,
-        alt: "Boutique CPI WW - Services d'immatriculation",
+        alt: "Boutique Carte Grise & CPI WW - Services d'immatriculation Reims",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Boutique CPI WW - Commandez votre Immatriculation",
-    description: "3 formules d'immatriculation disponibles. Traitement rapide 24-48h.",
+    title: "Boutique Carte Grise & CPI WW - Commandez en Ligne Reims",
+    description: "3 formules carte grise et immatriculation disponibles à Reims. Traitement rapide 24-48h.",
   },
   alternates: {
-    canonical: "https://cpi-ww.fr/boutique",
+    canonical: "https://www.bureau-immatriculation.fr/boutique",
   },
 }
 

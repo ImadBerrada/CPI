@@ -6,27 +6,53 @@ import { Analytics } from "@vercel/analytics/next"
 import "./globals.css"
 import { Navigation } from "@/components/navigation"
 import { Suspense } from "react"
+import { WhatsAppButton } from "@/components/whatsapp-button";
+import { OrderFormProvider } from "@/components/order-form-provider";
+import { Toaster } from "@/components/ui/toaster";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://cpi-ww.fr"),
+  metadataBase: new URL("https://www.bureau-immatriculation.fr"),
   title: {
-    default: "CPI WW - Immatriculation Temporaire France | Service Agréé SIV",
-    template: "%s | CPI WW - Service Agréé SIV",
+    default: "Carte Grise Reims - CPI WW | Immatriculation Temporaire Marne | Service Agréé SIV",
+    template: "%s | Carte Grise Reims - CPI WW | Service Agréé SIV",
   },
   description:
-    "Service professionnel d'immatriculation temporaire CPI WW et véhicules importés en France. Agrément SIV n°189226. Démarches rapides et sécurisées.",
+    "Service professionnel carte grise et immatriculation temporaire CPI WW à Reims et dans la Marne. Démarches rapides pour Witry-lès-Reims, Cormontreuil, Bezannes, Châlons-en-Champagne, Épernay.",
+  icons: {
+    icon: [
+      { url: '/favicon.ico', sizes: 'any' },
+      { url: '/CPI WW-carte grise.png', type: 'image/png', sizes: '32x32' },
+      { url: '/icon-192x192.png', type: 'image/png', sizes: '192x192' },
+      { url: '/icon-512x512.png', type: 'image/png', sizes: '512x512' },
+    ],
+    apple: '/CPI WW-carte grise.png',
+  },
   keywords: [
-    "CPI WW",
-    "immatriculation temporaire",
-    "véhicules importés",
-    "SIV",
-    "France",
-    "carte grise",
-    "import auto",
+    "carte grise Reims",
+    "bureau carte grise Reims",
+    "service carte grise Reims",
+    "carte grise rapide Reims",
+    "carte grise Marne",
+    "CPI WW Reims",
+    "immatriculation temporaire Reims",
+    "véhicules importés Marne",
+    "SIV Reims",
+    "immatriculation Witry-lès-Reims",
+    "carte grise Cormontreuil",
+    "CPI WW Châlons-en-Champagne",
+    "immatriculation Épernay",
+    "carte grise Châlons-en-Champagne",
+    "carte grise Épernay",
+    "service agréé Reims",
+    "plaques WW Marne",
+    "import auto Reims",
+    "certificat provisoire Reims",
+    "démarches administratives Reims",
+    "bureau immatriculation Reims"
   ],
-  authors: [{ name: "CPI WW" }],
-  creator: "CPI WW",
-  publisher: "CPI WW",
+  authors: [{ name: "CPI WW Reims" }],
+  creator: "CPI WW Reims",
+  publisher: "CPI WW Reims",
   formatDetection: {
     email: false,
     address: false,
@@ -35,25 +61,25 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "fr_FR",
-    url: "https://cpi-ww.fr",
-    siteName: "CPI WW",
-    title: "CPI WW - Immatriculation Temporaire France | Service Agréé SIV",
+    url: "https://www.bureau-immatriculation.fr",
+    siteName: "Carte Grise Reims - CPI WW",
+    title: "Carte Grise Reims - CPI WW | Immatriculation Temporaire Marne | Service Agréé SIV",
     description:
-      "Service professionnel d'immatriculation temporaire CPI WW et véhicules importés en France. Agrément SIV n°189226.",
+      "Service professionnel carte grise et immatriculation temporaire CPI WW à Reims et dans la Marne. Intervention rapide dans toute l'agglomération rémoise.",
     images: [
       {
-        url: "/european-car-registration-office-professional.jpg",
+        url: "/CPI WW-carte grise.png",
         width: 1200,
         height: 630,
-        alt: "CPI WW - Service d'immatriculation temporaire",
+        alt: "Carte Grise Reims - CPI WW | Service d'immatriculation temporaire dans la Marne",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "CPI WW - Immatriculation Temporaire France",
-    description: "Service professionnel d'immatriculation temporaire CPI WW et véhicules importés en France.",
-    images: ["/european-car-registration-office-professional.jpg"],
+    title: "Carte Grise Reims - CPI WW | Immatriculation Temporaire Marne",
+    description: "Service professionnel carte grise et immatriculation temporaire CPI WW à Reims et dans la Marne. Intervention rapide dans toute l'agglomération.",
+    images: ["/CPI WW-carte grise.png"],
   },
   robots: {
     index: true,
@@ -69,7 +95,15 @@ export const metadata: Metadata = {
   verification: {
     google: "your-google-verification-code",
   },
-    generator: 'v0.app'
+  manifest: "/manifest.json",
+  alternates: {
+    canonical: "https://www.bureau-immatriculation.fr",
+    languages: {
+      'fr-FR': 'https://www.bureau-immatriculation.fr',
+        'fr': 'https://www.bureau-immatriculation.fr',
+    },
+  },
+  generator: 'v0.app'
 }
 
 export default function RootLayout({
@@ -80,6 +114,9 @@ export default function RootLayout({
   return (
     <html lang="fr">
       <head>
+        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+        <meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -88,11 +125,11 @@ export default function RootLayout({
               "@type": "Organization",
               name: "CPI WW",
               description: "Service professionnel d'immatriculation temporaire pour véhicules importés en France",
-              url: "https://cpi-ww.fr",
-              logo: "https://cpi-ww.fr/logo.png",
+              url: "https://www.bureau-immatriculation.fr",
+      logo: "https://www.bureau-immatriculation.fr/logo.png",
               contactPoint: {
                 "@type": "ContactPoint",
-                telephone: "+33-1-23-45-67-89",
+                telephone: "+33 07 56 89 89 50",
                 contactType: "customer service",
                 availableLanguage: "French",
               },
@@ -107,11 +144,15 @@ export default function RootLayout({
         />
       </head>
       <body className={`font-sans ${GeistSans.variable} ${GeistMono.variable}`}>
-        <Suspense fallback={<div>Loading...</div>}>
-          <Navigation />
-          {children}
-        </Suspense>
-        <Analytics />
+        <OrderFormProvider>
+          <Suspense fallback={<div>Loading...</div>}>
+            <Navigation />
+            {children}
+          </Suspense>
+          <Analytics />
+          <WhatsAppButton />
+          <Toaster />
+        </OrderFormProvider>
       </body>
     </html>
   )

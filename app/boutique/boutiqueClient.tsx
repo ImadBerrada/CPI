@@ -6,6 +6,7 @@ import { Badge } from "@/components/ui/badge"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
 import { Shield, Clock, FileText, CheckCircle, X, ArrowRight, Car, Truck, Building, BadgeCheck, Timer, Send, Download, CreditCard, Users, Award, Zap, Globe, HeadphonesIcon, Star } from "lucide-react"
 import Link from "next/link"
+import { OrderNowButton } from "@/components/order-form-provider"
 import { motion } from "framer-motion"
 import { Footer } from "@/components/footer"
 
@@ -133,7 +134,7 @@ export default function BoutiqueClient() {
                 transition={{ duration: 0.6, delay: 0.2 }}
               >
                 <BadgeCheck className="w-4 h-4 text-green-400" />
-                <span className="text-sm font-medium">Service agréé SIV n°189226</span>
+              <span className="text-sm font-medium">Service agréé SIV</span>
               </motion.div>
               
               <h1 className="text-4xl lg:text-6xl font-bold mb-6 text-balance">
@@ -149,10 +150,15 @@ export default function BoutiqueClient() {
 
         <div className="py-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            {/* Pricing Cards */}
+            {/* CPI WW Service - Main Service */}
             <AnimatedSection className="mb-20">
+              <div className="text-center mb-12">
+                <h2 className="text-3xl lg:text-4xl font-bold mb-4">Service CPI WW</h2>
+                <p className="text-xl text-muted-foreground">Notre service principal d'immatriculation temporaire</p>
+              </div>
+
               <motion.div
-                className="grid md:grid-cols-4 gap-8"
+                className="grid md:grid-cols-1 gap-8 max-w-md mx-auto"
                 variants={staggerContainer}
                 initial="initial"
                 whileInView="animate"
@@ -168,14 +174,15 @@ export default function BoutiqueClient() {
                       <CardTitle className="text-2xl group-hover:text-primary transition-colors">CPI WW</CardTitle>
                       <CardDescription className="text-base">Certificat provisoire d'immatriculation</CardDescription>
                       <div className="pt-4">
-                        <span className="text-4xl font-bold text-primary">89€</span>
+                        <span className="text-sm text-muted-foreground block mb-1"> </span>
+                        <span className="text-4xl font-bold text-primary">79.95€</span>
                         <span className="text-muted-foreground"> TTC</span>
                       </div>
                     </CardHeader>
                     <CardContent className="space-y-4">
                       <ul className="space-y-3">
                         {[
-                          "Certificat CPI WW valide 1 mois",
+                          "Certificat CPI WW valide 4 mois",
                           "Traitement sous 24-48h",
                           "Envoi par email + courrier",
                           "Support client inclus",
@@ -187,263 +194,122 @@ export default function BoutiqueClient() {
                           </li>
                         ))}
                       </ul>
-                      <Button asChild className="w-full mt-6 group-hover:bg-primary/90">
-                        <Link href="#commander">
-                          Commander
-                          <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                        </Link>
-                      </Button>
-                    </CardContent>
-                  </Card>
-                </motion.div>
-
-                {/* CPI WW Express */}
-                <motion.div variants={fadeInUp}>
-                  <Card className="relative h-full hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 border-2 border-primary shadow-xl group scale-105">
-                    <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-primary to-blue-600 text-white px-4 py-1 rounded-full text-sm font-medium">
-                      Le plus populaire
-                    </div>
-                    <CardHeader className="text-center pb-8">
-                      <div className="bg-gradient-to-br from-orange-500 to-orange-600 w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform shadow-lg">
-                        <Timer className="h-8 w-8 text-white" />
-                      </div>
-                      <CardTitle className="text-2xl group-hover:text-primary transition-colors">CPI WW Express</CardTitle>
-                      <CardDescription className="text-base">Traitement prioritaire 24h</CardDescription>
-                      <div className="pt-4">
-                        <span className="text-4xl font-bold text-primary">129€</span>
-                        <span className="text-muted-foreground"> TTC</span>
-                      </div>
-                    </CardHeader>
-                    <CardContent className="space-y-4">
-                      <ul className="space-y-3">
-                        {[
-                          "Certificat CPI WW valide 1 mois",
-                          "Traitement prioritaire 24h",
-                          "Envoi par email + courrier recommandé",
-                          "Support prioritaire",
-                          "Conformité garantie",
-                        ].map((feature, i) => (
-                          <li key={i} className="flex items-center gap-3">
-                            <BadgeCheck className="h-5 w-5 text-green-600 flex-shrink-0" />
-                            <span className="text-sm">{feature}</span>
-                          </li>
-                        ))}
-                      </ul>
-                      <Button asChild className="w-full mt-6 bg-primary hover:bg-primary/90">
-                        <Link href="#commander">
-                          Commander
-                          <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                        </Link>
-                      </Button>
-                    </CardContent>
-                  </Card>
-                </motion.div>
-
-                {/* Livraison Express */}
-                <motion.div variants={fadeInUp}>
-                  <Card className="relative h-full hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 border-2 group">
-                    <CardHeader className="text-center pb-8">
-                      <div className="bg-gradient-to-br from-green-500 to-green-600 w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform shadow-lg">
-                        <Truck className="h-8 w-8 text-white" />
-                      </div>
-                      <CardTitle className="text-2xl group-hover:text-primary transition-colors">Livraison Express</CardTitle>
-                      <CardDescription className="text-base">Réception sous 24h</CardDescription>
-                      <div className="pt-4">
-                        <span className="text-4xl font-bold text-primary">+39€</span>
-                        <span className="text-muted-foreground"> TTC</span>
-                      </div>
-                    </CardHeader>
-                    <CardContent className="space-y-4">
-                      <ul className="space-y-3">
-                        {[
-                          "Livraison express 24h",
-                          "Suivi en temps réel",
-                          "Remise en main propre",
-                          "Assurance incluse",
-                          "Disponible partout en France",
-                        ].map((feature, i) => (
-                          <li key={i} className="flex items-center gap-3">
-                            <BadgeCheck className="h-5 w-5 text-green-600 flex-shrink-0" />
-                            <span className="text-sm">{feature}</span>
-                          </li>
-                        ))}
-                      </ul>
-                      <Button asChild variant="outline" className="w-full mt-6">
-                        <Link href="#commander">
-                          Ajouter
-                          <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                        </Link>
-                      </Button>
-                    </CardContent>
-                  </Card>
-                </motion.div>
-
-                {/* Immatriculation Définitive */}
-                <motion.div variants={fadeInUp}>
-                  <Card className="relative h-full hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 border-2 group">
-                    <CardHeader className="text-center pb-8">
-                      <div className="bg-gradient-to-br from-purple-500 to-purple-600 w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform shadow-lg">
-                        <Building className="h-8 w-8 text-white" />
-                      </div>
-                      <CardTitle className="text-2xl group-hover:text-primary transition-colors">Immatriculation Définitive</CardTitle>
-                      <CardDescription className="text-base">Service complet</CardDescription>
-                      <div className="pt-4">
-                        <span className="text-4xl font-bold text-primary">249€</span>
-                        <span className="text-muted-foreground"> TTC</span>
-                      </div>
-                    </CardHeader>
-                    <CardContent className="space-y-4">
-                      <ul className="space-y-3">
-                        {[
-                          "Démarche complète d'immatriculation",
-                          "Nouvelle carte grise française",
-                          "Gestion de tous les documents",
-                          "Support dédié",
-                          "Garantie de conformité",
-                        ].map((feature, i) => (
-                          <li key={i} className="flex items-center gap-3">
-                            <BadgeCheck className="h-5 w-5 text-green-600 flex-shrink-0" />
-                            <span className="text-sm">{feature}</span>
-                          </li>
-                        ))}
-                      </ul>
-                      <Button asChild variant="outline" className="w-full mt-6">
-                        <Link href="#commander">
-                          Commander
-                          <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                        </Link>
-                      </Button>
+                      <OrderNowButton className="w-full mt-6 group-hover:bg-primary/90" serviceType="CPI WW Standard">
+                        Commander
+                        <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                      </OrderNowButton>
                     </CardContent>
                   </Card>
                 </motion.div>
               </motion.div>
             </AnimatedSection>
 
-            {/* Comparison Table */}
+            {/* Individual Services Section */}
             <AnimatedSection className="mb-20">
               <div className="text-center mb-12">
-                <h2 className="text-3xl lg:text-4xl font-bold mb-4">Comparaison des services</h2>
-                <p className="text-xl text-muted-foreground">Trouvez la formule qui correspond à vos besoins</p>
+                <h2 className="text-3xl lg:text-4xl font-bold mb-4">Services individuels</h2>
+                <p className="text-xl text-muted-foreground">Tarifs transparents pour vos démarches spécifiques</p>
               </div>
 
-              <Card className="overflow-hidden">
-                <Table>
-                  <TableHeader>
-                    <TableRow className="bg-gray-50">
-                      <TableHead className="font-semibold text-foreground">Caractéristiques</TableHead>
-                      <TableHead className="text-center font-semibold text-foreground">CPI WW</TableHead>
-                      <TableHead className="text-center font-semibold text-foreground bg-orange-50">
-                        Renouvellement
-                      </TableHead>
-                      <TableHead className="text-center font-semibold text-foreground bg-blue-50">
-                        CPI WW + Plaques
-                      </TableHead>
-                      <TableHead className="text-center font-semibold text-foreground">Immat. Définitive</TableHead>
-                    </TableRow>
-                  </TableHeader>
-                  <TableBody>
-                    {[
-                      {
-                        feature: "Certificat d'immatriculation",
-                        basic: true,
-                        renewal: true,
-                        premium: true,
-                        definitive: true,
-                      },
-                      {
-                        feature: "Plaques temporaires WW",
-                        basic: false,
-                        renewal: false,
-                        premium: true,
-                        definitive: false,
-                      },
-                      {
-                        feature: "Plaques françaises définitives",
-                        basic: false,
-                        renewal: false,
-                        premium: false,
-                        definitive: true,
-                      },
-                      {
-                        feature: "Délai de traitement",
-                        basic: "24-48h",
-                        renewal: "24h",
-                        premium: "24-48h",
-                        definitive: "5-7 jours",
-                      },
-                      {
-                        feature: "Validité",
-                        basic: "1 mois",
-                        renewal: "+1 mois",
-                        premium: "1 mois",
-                        definitive: "Définitive",
-                      },
-                      {
-                        feature: "Support client",
-                        basic: "Standard",
-                        renewal: "Standard",
-                        premium: "Prioritaire",
-                        definitive: "Dédié",
-                      },
-                      {
-                        feature: "Prix TTC",
-                        basic: "89€",
-                        renewal: "59€",
-                        premium: "149€",
-                        definitive: "249€",
-                      },
-                    ].map((row, index) => (
-                      <TableRow key={index}>
-                        <TableCell className="font-medium">{row.feature}</TableCell>
-                        <TableCell className="text-center">
-                          {typeof row.basic === "boolean" ? (
-                            row.basic ? (
-                              <CheckCircle className="h-5 w-5 text-green-600 mx-auto" />
-                            ) : (
-                              <X className="h-5 w-5 text-gray-400 mx-auto" />
-                            )
-                          ) : (
-                            row.basic
-                          )}
-                        </TableCell>
-                        <TableCell className="text-center bg-orange-50/50">
-                          {typeof row.renewal === "boolean" ? (
-                            row.renewal ? (
-                              <CheckCircle className="h-5 w-5 text-green-600 mx-auto" />
-                            ) : (
-                              <X className="h-5 w-5 text-gray-400 mx-auto" />
-                            )
-                          ) : (
-                            row.renewal
-                          )}
-                        </TableCell>
-                        <TableCell className="text-center bg-blue-50/50">
-                          {typeof row.premium === "boolean" ? (
-                            row.premium ? (
-                              <CheckCircle className="h-5 w-5 text-green-600 mx-auto" />
-                            ) : (
-                              <X className="h-5 w-5 text-gray-400 mx-auto" />
-                            )
-                          ) : (
-                            row.premium
-                          )}
-                        </TableCell>
-                        <TableCell className="text-center">
-                          {typeof row.definitive === "boolean" ? (
-                            row.definitive ? (
-                              <CheckCircle className="h-5 w-5 text-green-600 mx-auto" />
-                            ) : (
-                              <X className="h-5 w-5 text-gray-400 mx-auto" />
-                            )
-                          ) : (
-                            row.definitive
-                          )}
-                        </TableCell>
-                      </TableRow>
-                    ))}
-                  </TableBody>
-                </Table>
-              </Card>
+              <motion.div
+                className="grid md:grid-cols-2 lg:grid-cols-4 gap-6"
+                variants={staggerContainer}
+                initial="initial"
+                whileInView="animate"
+                viewport={{ once: true }}
+              >
+                {/* Carte Grise */}
+                <motion.div variants={fadeInUp}>
+                  <Card className="h-full hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group">
+                    <CardHeader className="text-center pb-6">
+                      <div className="bg-gradient-to-br from-green-500 to-green-600 w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform shadow-lg">
+                        <FileText className="h-8 w-8 text-white" />
+                      </div>
+                      <CardTitle className="text-xl group-hover:text-primary transition-colors">Carte grise</CardTitle>
+                      <div className="pt-2">
+                        <span className="text-3xl font-bold text-primary">29€</span>
+                        <span className="text-muted-foreground"> TTC</span>
+                      </div>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-sm text-muted-foreground text-center mb-4">Service de traitement de carte grise</p>
+                      <OrderNowButton className="w-full" serviceType="Carte Grise">
+                        Commander
+                        <ArrowRight className="ml-2 h-4 w-4" />
+                      </OrderNowButton>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+
+                {/* Changement d'adresse */}
+                <motion.div variants={fadeInUp}>
+                  <Card className="h-full hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group">
+                    <CardHeader className="text-center pb-6">
+                      <div className="bg-gradient-to-br from-blue-500 to-blue-600 w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform shadow-lg">
+                        <Building className="h-8 w-8 text-white" />
+                      </div>
+                      <CardTitle className="text-xl group-hover:text-primary transition-colors">Changement d'adresse</CardTitle>
+                      <div className="pt-2">
+                        <span className="text-3xl font-bold text-primary">19€</span>
+                        <span className="text-muted-foreground"> TTC</span>
+                      </div>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-sm text-muted-foreground text-center mb-4">Mise à jour de votre adresse</p>
+                      <OrderNowButton className="w-full" serviceType="Changement d'adresse">
+                        Commander
+                        <ArrowRight className="ml-2 h-4 w-4" />
+                      </OrderNowButton>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+
+                {/* Déclaration d'achat */}
+                <motion.div variants={fadeInUp}>
+                  <Card className="h-full hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group">
+                    <CardHeader className="text-center pb-6">
+                      <div className="bg-gradient-to-br from-purple-500 to-purple-600 w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform shadow-lg">
+                        <CreditCard className="h-8 w-8 text-white" />
+                      </div>
+                      <CardTitle className="text-xl group-hover:text-primary transition-colors">Déclaration d'achat</CardTitle>
+                      <div className="pt-2">
+                        <span className="text-3xl font-bold text-primary">19€</span>
+                        <span className="text-muted-foreground"> TTC</span>
+                      </div>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-sm text-muted-foreground text-center mb-4">Déclaration officielle d'achat</p>
+                      <OrderNowButton className="w-full" serviceType="Déclaration d'achat">
+                        Commander
+                        <ArrowRight className="ml-2 h-4 w-4" />
+                      </OrderNowButton>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+
+                {/* Cessions de véhicule */}
+                <motion.div variants={fadeInUp}>
+                  <Card className="h-full hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group">
+                    <CardHeader className="text-center pb-6">
+                      <div className="bg-gradient-to-br from-orange-500 to-orange-600 w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform shadow-lg">
+                        <Car className="h-8 w-8 text-white" />
+                      </div>
+                      <CardTitle className="text-xl group-hover:text-primary transition-colors">Cessions de véhicule</CardTitle>
+                      <div className="pt-2">
+                        <span className="text-3xl font-bold text-primary">19€</span>
+                        <span className="text-muted-foreground"> TTC</span>
+                      </div>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-sm text-muted-foreground text-center mb-4">Formalités de cession</p>
+                      <OrderNowButton className="w-full" serviceType="Cessions de véhicule">
+                        Commander
+                        <ArrowRight className="ml-2 h-4 w-4" />
+                      </OrderNowButton>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              </motion.div>
             </AnimatedSection>
 
             {/* Process Section */}

@@ -6,6 +6,7 @@ import { Badge } from "@/components/ui/badge"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
 import { Shield, Clock, FileText, CheckCircle, X, ArrowRight, Car, Truck, Building } from "lucide-react"
 import Link from "next/link"
+import { OrderNowButton } from "@/components/order-form-provider"
 import { motion } from "framer-motion"
 import { Footer } from "@/components/footer"
 
@@ -37,7 +38,7 @@ export default function BoutiqueClientPage() {
           >
             <Badge className="bg-blue-100 text-blue-800 hover:bg-blue-100 mb-4">
               <Shield className="w-4 h-4 mr-2" />
-              Service agréé SIV n°189226
+        Service agréé SIV
             </Badge>
             <h1 className="text-4xl lg:text-5xl font-bold mb-4 text-balance">Nos services d'immatriculation</h1>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto text-pretty">
@@ -62,14 +63,14 @@ export default function BoutiqueClientPage() {
                   <CardTitle className="text-2xl">CPI WW</CardTitle>
                   <CardDescription className="text-base">Certificat provisoire d'immatriculation</CardDescription>
                   <div className="pt-4">
-                    <span className="text-4xl font-bold">89€</span>
+                    <span className="text-4xl font-bold">79.95€</span>
                     <span className="text-muted-foreground"> TTC</span>
                   </div>
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <ul className="space-y-3">
                     {[
-                      "Certificat CPI WW valide 1 mois",
+                      "Certificat CPI WW valide 4 mois",
                       "Traitement sous 24-48h",
                       "Envoi par email + courrier",
                       "Support client inclus",
@@ -81,10 +82,10 @@ export default function BoutiqueClientPage() {
                       </li>
                     ))}
                   </ul>
-                  <Button className="w-full mt-8 bg-blue-600 hover:bg-blue-700" size="lg">
+                  <OrderNowButton className="w-full mt-8 bg-blue-600 hover:bg-blue-700" size="lg" serviceType="CPI WW Standard">
                     Commander maintenant
                     <ArrowRight className="ml-2 h-4 w-4" />
-                  </Button>
+                  </OrderNowButton>
                 </CardContent>
               </Card>
             </motion.div>
@@ -122,10 +123,10 @@ export default function BoutiqueClientPage() {
                       </li>
                     ))}
                   </ul>
-                  <Button className="w-full mt-8 bg-blue-600 hover:bg-blue-700" size="lg">
+                  <OrderNowButton className="w-full mt-8 bg-blue-600 hover:bg-blue-700" size="lg" serviceType="CPI WW + Plaques">
                     Commander maintenant
                     <ArrowRight className="ml-2 h-4 w-4" />
-                  </Button>
+                  </OrderNowButton>
                 </CardContent>
               </Card>
             </motion.div>
@@ -160,125 +161,16 @@ export default function BoutiqueClientPage() {
                       </li>
                     ))}
                   </ul>
-                  <Button className="w-full mt-8 bg-green-600 hover:bg-green-700" size="lg">
+                  <OrderNowButton className="w-full mt-8 bg-green-600 hover:bg-green-700" size="lg" serviceType="Immatriculation Définitive">
                     Commander maintenant
                     <ArrowRight className="ml-2 h-4 w-4" />
-                  </Button>
+                  </OrderNowButton>
                 </CardContent>
               </Card>
             </motion.div>
           </motion.div>
 
-          {/* Comparison Table */}
-          <motion.div
-            className="mb-20"
-            initial={{ opacity: 0, y: 60 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-          >
-            <div className="text-center mb-12">
-              <h2 className="text-3xl lg:text-4xl font-bold mb-4">Comparaison des services</h2>
-              <p className="text-xl text-muted-foreground">Trouvez la formule qui correspond à vos besoins</p>
-            </div>
 
-            <Card className="overflow-hidden">
-              <Table>
-                <TableHeader>
-                  <TableRow className="bg-gray-50">
-                    <TableHead className="font-semibold text-foreground">Caractéristiques</TableHead>
-                    <TableHead className="text-center font-semibold text-foreground">CPI WW</TableHead>
-                    <TableHead className="text-center font-semibold text-foreground bg-blue-50">
-                      CPI WW + Plaques
-                    </TableHead>
-                    <TableHead className="text-center font-semibold text-foreground">Immat. Définitive</TableHead>
-                  </TableRow>
-                </TableHeader>
-                <TableBody>
-                  {[
-                    {
-                      feature: "Certificat d'immatriculation",
-                      basic: true,
-                      premium: true,
-                      definitive: true,
-                    },
-                    {
-                      feature: "Plaques temporaires WW",
-                      basic: false,
-                      premium: true,
-                      definitive: false,
-                    },
-                    {
-                      feature: "Plaques françaises définitives",
-                      basic: false,
-                      premium: false,
-                      definitive: true,
-                    },
-                    {
-                      feature: "Délai de traitement",
-                      basic: "24-48h",
-                      premium: "24-48h",
-                      definitive: "5-7 jours",
-                    },
-                    {
-                      feature: "Validité",
-                      basic: "1 mois",
-                      premium: "1 mois",
-                      definitive: "Définitive",
-                    },
-                    {
-                      feature: "Support client",
-                      basic: "Standard",
-                      premium: "Prioritaire",
-                      definitive: "Dédié",
-                    },
-                    {
-                      feature: "Prix TTC",
-                      basic: "89€",
-                      premium: "149€",
-                      definitive: "249€",
-                    },
-                  ].map((row, index) => (
-                    <TableRow key={index}>
-                      <TableCell className="font-medium">{row.feature}</TableCell>
-                      <TableCell className="text-center">
-                        {typeof row.basic === "boolean" ? (
-                          row.basic ? (
-                            <CheckCircle className="h-5 w-5 text-green-600 mx-auto" />
-                          ) : (
-                            <X className="h-5 w-5 text-gray-400 mx-auto" />
-                          )
-                        ) : (
-                          row.basic
-                        )}
-                      </TableCell>
-                      <TableCell className="text-center bg-blue-50/50">
-                        {typeof row.premium === "boolean" ? (
-                          row.premium ? (
-                            <CheckCircle className="h-5 w-5 text-green-600 mx-auto" />
-                          ) : (
-                            <X className="h-5 w-5 text-gray-400 mx-auto" />
-                          )
-                        ) : (
-                          row.premium
-                        )}
-                      </TableCell>
-                      <TableCell className="text-center">
-                        {typeof row.definitive === "boolean" ? (
-                          row.definitive ? (
-                            <CheckCircle className="h-5 w-5 text-green-600 mx-auto" />
-                          ) : (
-                            <X className="h-5 w-5 text-gray-400 mx-auto" />
-                          )
-                        ) : (
-                          row.definitive
-                        )}
-                      </TableCell>
-                    </TableRow>
-                  ))}
-                </TableBody>
-              </Table>
-            </Card>
-          </motion.div>
 
           {/* Process Section */}
           <motion.div

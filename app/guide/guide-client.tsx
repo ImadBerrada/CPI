@@ -10,6 +10,7 @@ import { Shield, FileText, Clock, CheckCircle, AlertTriangle, ArrowRight, BadgeC
 import Link from "next/link"
 import { motion } from "framer-motion"
 import { Footer } from "@/components/footer"
+import { OrderNowButton } from "@/components/order-form-provider"
 
 const fadeInUp = {
   initial: { opacity: 0, y: 60 },
@@ -332,7 +333,7 @@ export default function GuideClientPage() {
                   <Alert className="border-blue-200 bg-gradient-to-r from-blue-50 to-indigo-50">
                     <BadgeCheck className="h-5 w-5 text-blue-600" />
                     <AlertDescription className="text-blue-800 font-medium">
-                      Notre service est agréé par le Ministère de l'Intérieur sous le numéro SIV 189226. Toutes nos
+                      Notre service est agréé par le Ministère de l'Intérieur sous le numéro SIV 279558. Toutes nos
                       démarches respectent strictement la réglementation en vigueur.
                     </AlertDescription>
                   </Alert>
@@ -350,12 +351,9 @@ export default function GuideClientPage() {
                   Vous avez toutes les informations nécessaires, lancez votre demande maintenant
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <Button asChild size="lg" className="bg-white text-blue-600 hover:bg-gray-100 shadow-lg hover:shadow-xl transition-all duration-300 px-8 py-3">
-                    <Link href="/boutique" className="flex items-center gap-2">
-                      Commander maintenant
-                      <ArrowRight className="h-5 w-5" />
-                    </Link>
-                  </Button>
+                  <OrderNowButton serviceType="CPI WW Standard" className="bg-white text-blue-600 hover:bg-gray-100 shadow-lg hover:shadow-xl transition-all duration-300 px-8 py-3" size="lg">
+                    <span className="flex items-center gap-2">Commander maintenant<ArrowRight className="h-5 w-5" /></span>
+                  </OrderNowButton>
                   <Button
                     asChild
                     size="lg"
