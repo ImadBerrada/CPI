@@ -4,6 +4,8 @@ import { Table, TableHead, TableHeader, TableRow, TableBody, TableCell } from "@
 import Link from "next/link"
 import { AdminNav } from "@/components/admin-nav"
 
+export const dynamic = "force-dynamic"
+
 type OrderRow = {
   id: string
   service_type: string | null

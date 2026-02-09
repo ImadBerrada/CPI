@@ -333,7 +333,7 @@ export default function GuideClientPage() {
                   <Alert className="border-blue-200 bg-gradient-to-r from-blue-50 to-indigo-50">
                     <BadgeCheck className="h-5 w-5 text-blue-600" />
                     <AlertDescription className="text-blue-800 font-medium">
-                      Notre service est agréé par le Ministère de l'Intérieur sous le numéro SIV 279558. Toutes nos
+                      Notre service est agréé par le Ministère de l'Intérieur sous le numéro SIV  279558. Toutes nos
                       démarches respectent strictement la réglementation en vigueur.
                     </AlertDescription>
                   </Alert>

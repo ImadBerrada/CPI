@@ -7,6 +7,7 @@ import Link from "next/link"
 import { motion } from "framer-motion"
 import { useInView } from "framer-motion"
 import { useRef, useState } from "react"
+import { OrderNowButton } from "@/components/order-form-provider"
 
 const fadeInUp = {
   initial: { opacity: 0, y: 60 },
@@ -117,10 +118,10 @@ export default function ClientPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
             >
-              CPI WW Reims et Carte Grise{" "}
-              <span className="bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent">Marne</span>
+              CPI WW Reims & Metz – Carte Grise{" "}
+              <span className="bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent">Marne & Moselle</span>
               <br />
-              <span className="text-3xl lg:text-5xl font-normal text-white/90">Service Rapide Agréé dans la Marne</span>
+              <span className="text-3xl lg:text-5xl font-normal text-white/90">Service rapide agréé dans la Marne, la Moselle et la région Grand Est</span>
             </motion.h1>
 
             <motion.p
@@ -129,8 +130,7 @@ export default function ClientPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
             >
-              Service professionnel d'immatriculation temporaire CPI WW et carte grise à Reims pour véhicules importés. Changement carte grise, duplicata carte grise, carte grise perdue ou volée. Intervention rapide à Witry-lès-Reims, Cormontreuil, Bezannes, Châlons-en-Champagne et Épernay. Démarches
-              simplifiées, délais respectés, conformité garantie.
+              Service professionnel d'immatriculation temporaire CPI WW et de carte grise à Reims, Metz et dans leurs agglomérations pour véhicules importés. Changement de carte grise, duplicata, carte grise perdue ou volée. Intervention rapide à Witry-lès-Reims, Cormontreuil, Bezannes, Châlons-en-Champagne, Épernay, ainsi qu'à Metz, Montigny-lès-Metz, Woippy, Marly, Moulins-lès-Metz, Saint-Julien-lès-Metz et dans l'ensemble de l'agglomération messine. Démarches simplifiées, délais respectés, conformité garantie.
             </motion.p>
 
             <motion.div
@@ -158,14 +158,7 @@ export default function ClientPage() {
               >
                 <Link href="/guide">Voir le guide</Link>
               </Button>
-              <Button
-                asChild
-                variant="outline"
-                size="lg"
-                className="border-white/30 text-white hover:bg-white hover:text-primary backdrop-blur-sm bg-white/10 text-lg px-10 py-6"
-              >
-                <Link href="/admin/login">Admin</Link>
-              </Button>
+              
             </motion.div>
 
             <motion.div
@@ -189,39 +182,12 @@ export default function ClientPage() {
               ))}
             </motion.div>
 
-            {/* Trust badges moved lower */}
-            <motion.div
-              className="flex flex-wrap justify-center gap-4 mt-16"
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, delay: 1.2 }}
-            >
-              <div className="trust-badge bg-white/10 text-white border-white/20 backdrop-blur-sm">
-                <Shield className="w-4 h-4" />
-                
-              </div>
-              <div className="trust-badge bg-white/10 text-white border-white/20 backdrop-blur-sm">
-                <Award className="w-4 h-4" />
-                
-              </div>
-              <div className="trust-badge bg-white/10 text-white border-white/20 backdrop-blur-sm">
-                <BadgeCheck className="w-4 h-4" />
-                Paiement sécurisé
-              </div>
-            </motion.div>
+            {/* Removed hero inline links for Reims/Metz and CPI WW Metz per request */}
+
+            {/* Trust badges removed from hero section */}
           </motion.div>
 
-          {/* Scroll indicator */}
-          <motion.div
-            className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1, delay: 1.5 }}
-          >
-            <div className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center">
-              <div className="w-1 h-3 bg-white/60 rounded-full mt-2 animate-bounce" />
-            </div>
-          </motion.div>
+          {/* Scroll indicator removed */}
         </div>
       </section>
 
@@ -230,7 +196,7 @@ export default function ClientPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-4 gap-8 text-center">
             {[
-              { number: 15000, label: "Dossiers traités", suffix: "+" },
+              { number: 1000, label: "Dossiers traités", suffix: "+" },
               { number: 98, label: "Taux de satisfaction", suffix: "%" },
               { number: 24, label: "Délai moyen", suffix: "h" },
               { number: 10, label: "Années d'expérience", suffix: "+" },
@@ -254,63 +220,9 @@ export default function ClientPage() {
         </div>
       </AnimatedSection>
 
-      {/* Pricing Transparency Section */}
-      <AnimatedSection className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-            >
-              <h2 className="text-4xl lg:text-5xl font-bold mb-6 text-gray-900">
-                Tarifs transparents
-              </h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                Des prix clairs et compétitifs pour tous vos besoins d'immatriculation
-              </p>
-            </motion.div>
-          </div>
+      {/* Pricing transparency section removed; CPI WW Standard moved to Services */}
 
-          {/* CPI WW Standard Pricing Card */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            viewport={{ once: true }}
-            className="max-w-md mx-auto"
-          >
-            <div className="bg-gradient-to-br from-blue-50 to-indigo-100 rounded-2xl shadow-xl border border-blue-200 overflow-hidden">
-              <div className="p-8">
-                <div className="text-center mb-6">
-                  <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-600 rounded-full mb-4">
-                    <Car className="w-8 h-8 text-white" />
-                  </div>
-                  <h3 className="text-2xl font-bold text-gray-900 mb-2">CPI WW Standard</h3>
-                  <p className="text-gray-600 leading-relaxed">
-                    Service d'immatriculation temporaire pour véhicules importés. Traitement rapide en 24-48h.
-                  </p>
-                </div>
-                
-                <div className="text-center mb-6">
-                  <div className="text-4xl font-bold text-blue-600 mb-2">
-                      79.95€
-                  </div>
-                  <p className="text-sm text-gray-500">Prix transparent, sans frais cachés</p>
-                </div>
-                
-                <Button asChild className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 text-lg">
-                  <Link href="/boutique">
-                    Commander maintenant
-                    <ArrowRight className="ml-2 h-5 w-5" />
-                  </Link>
-                </Button>
-              </div>
-            </div>
-          </motion.div>
-        </div>
-      </AnimatedSection>
+      {/* SEO Content Section for Reims & Metz removed per request */}
 
       {/* Services Section */}
       <AnimatedSection className="py-32 bg-gradient-to-br from-slate-50 to-gray-100">
@@ -323,6 +235,40 @@ export default function ClientPage() {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {/* CPI WW Standard Service */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group"
+            >
+              <div className="p-6">
+                <div className="flex items-center justify-between mb-4">
+                  <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-100 text-blue-800">
+                    Service Individuel
+                  </span>
+                  <Car className="h-6 w-6 text-blue-600 group-hover:scale-110 transition-transform duration-300" />
+                </div>
+                
+                <h3 className="text-xl font-bold mb-3 group-hover:text-blue-600 transition-colors duration-300">
+                  CPI WW Standard
+                </h3>
+                
+                <p className="text-gray-600 mb-4">
+                  Certificat provisoire d'immatriculation (WW) pour véhicules importés. Traitement 24–48h.
+                </p>
+                
+                <div className="flex items-center justify-between mb-4">
+                  <span className="text-2xl font-bold text-primary">99.95€</span>
+                </div>
+                
+                <OrderNowButton className="w-full" serviceType="CPI WW">
+                  Commander
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </OrderNowButton>
+              </div>
+            </motion.div>
             {/* Carte Grise Service */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -351,12 +297,10 @@ export default function ClientPage() {
                   <span className="text-2xl font-bold text-primary">29€</span>
                 </div>
                 
-                <Button asChild className="w-full">
-                  <Link href="/boutique">
-                    Commander
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </Link>
-                </Button>
+                <OrderNowButton className="w-full" serviceType="Carte grise">
+                  Commander
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </OrderNowButton>
               </div>
             </motion.div>
 
@@ -388,12 +332,10 @@ export default function ClientPage() {
                   <span className="text-2xl font-bold text-primary">19€</span>
                 </div>
                 
-                <Button asChild className="w-full">
-                  <Link href="/boutique">
-                    Commander
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </Link>
-                </Button>
+                <OrderNowButton className="w-full" serviceType="Changement d’adresse">
+                  Commander
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </OrderNowButton>
               </div>
             </motion.div>
 
@@ -425,12 +367,10 @@ export default function ClientPage() {
                   <span className="text-2xl font-bold text-primary">19€</span>
                 </div>
                 
-                <Button asChild className="w-full">
-                  <Link href="/boutique">
-                    Commander
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </Link>
-                </Button>
+                <OrderNowButton className="w-full" serviceType="Déclaration d’achat">
+                  Commander
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </OrderNowButton>
               </div>
             </motion.div>
 
@@ -462,23 +402,54 @@ export default function ClientPage() {
                   <span className="text-2xl font-bold text-primary">19€</span>
                 </div>
                 
-                <Button asChild className="w-full">
-                  <Link href="/boutique">
-                    Commander
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </Link>
-                </Button>
+                <OrderNowButton className="w-full" serviceType="Cession">
+                  Commander
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </OrderNowButton>
+              </div>
+              </motion.div>
+
+            {/* Quitus Fiscal Service */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.5 }}
+              viewport={{ once: true }}
+              className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group"
+            >
+              <div className="p-6">
+                <div className="flex items-center justify-between mb-4">
+                  <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-amber-100 text-amber-800">
+                    Service Individuel
+                  </span>
+                  <FileCheck className="h-6 w-6 text-amber-600 group-hover:scale-110 transition-transform duration-300" />
+                </div>
+
+                <h3 className="text-xl font-bold mb-3 group-hover:text-amber-600 transition-colors duration-300">
+                  Quitus Fiscal
+                </h3>
+
+                <p className="text-gray-600 mb-4">
+                  Obtention du Quitus Fiscal pour véhicule importé.
+                </p>
+
+                <div className="flex items-center justify-between mb-4">
+                  <span className="text-2xl font-bold text-primary">39€</span>
+                </div>
+
+                <OrderNowButton className="w-full" serviceType="Quitus Fiscal">
+                  Commander
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </OrderNowButton>
               </div>
             </motion.div>
           </div>
 
           <div className="text-center mt-12">
-            <Button asChild size="lg" className="bg-primary hover:bg-primary/90">
-              <Link href="/boutique">
-                Voir tous nos services
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Link>
-            </Button>
+            <OrderNowButton size="lg" className="bg-primary hover:bg-primary/90" serviceType="Nos services">
+              Voir tous nos services
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </OrderNowButton>
           </div>
         </div>
       </AnimatedSection>
@@ -492,9 +463,9 @@ export default function ClientPage() {
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-4xl lg:text-5xl font-bold mb-6 text-balance">Démarche en 3 étapes à Reims</h2>
+              <h2 className="text-4xl lg:text-5xl font-bold mb-6 text-balance">Démarche en 3 étapes à Reims & Metz</h2>
               <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-                Un processus simplifié pour votre immatriculation temporaire dans la Marne
+                Un processus simplifié pour votre immatriculation temporaire dans la Marne, la Moselle et plus largement dans le Grand Est
               </p>
             </motion.div>
           </div>
@@ -555,9 +526,9 @@ export default function ClientPage() {
       <AnimatedSection className="py-32 bg-gradient-to-br from-muted/30 to-accent/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-20">
-            <h2 className="text-4xl lg:text-5xl font-bold mb-6">Pourquoi choisir notre service à Reims ?</h2>
+            <h2 className="text-4xl lg:text-5xl font-bold mb-6">Pourquoi choisir notre service à Reims & Metz ?</h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-              Une expertise reconnue pour vos démarches d'immatriculation temporaire dans la Marne et l'agglomération rémoise
+              Une expertise reconnue pour vos démarches d'immatriculation temporaire dans la Marne, la Moselle, l'agglomération rémoise et le secteur messin.
             </p>
           </div>
 
@@ -572,7 +543,7 @@ export default function ClientPage() {
               {
                 icon: Scale,
                 title: "Service agréé SIV",
-                description: "Habilitation officielle n°189226 pour toutes vos démarches d'immatriculation",
+                description: "Habilitation officielle n° 279558 pour toutes vos démarches d'immatriculation",
                 color: "from-green-500 to-emerald-600",
               },
               {
@@ -684,8 +655,8 @@ export default function ClientPage() {
       <AnimatedSection className="py-32 bg-gradient-to-br from-blue-50 to-indigo-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-20">
-            <h2 className="text-4xl lg:text-5xl font-bold mb-6">Actualités CPI WW Reims & Marne</h2>
-            <p className="text-xl text-muted-foreground">Restez informé des dernières nouveautés et événements locaux</p>
+            <h2 className="text-4xl lg:text-5xl font-bold mb-6">Actualités CPI WW Reims & Metz (Marne & Moselle)</h2>
+            <p className="text-xl text-muted-foreground">Nouvelles locales et informations utiles pour la Marne et la Moselle</p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -696,7 +667,8 @@ export default function ClientPage() {
                 category: "Réglementation",
                 excerpt: "Découvrez les nouvelles dispositions pour l'immatriculation des véhicules importés dans la Marne.",
                 location: "Reims, Marne",
-                icon: <FileCheck className="h-6 w-6" />
+                icon: <FileCheck className="h-6 w-6" />, 
+                href: "/actualites/nouvelle-reglementation-2024"
               },
               {
                 title: "Salon de l'Auto Reims 2024",
@@ -704,7 +676,8 @@ export default function ClientPage() {
                 category: "Événement",
                 excerpt: "Retrouvez-nous au Salon de l'Automobile de Reims pour vos questions sur l'immatriculation.",
                 location: "Parc des Expositions, Reims",
-                icon: <Car className="h-6 w-6" />
+                icon: <Car className="h-6 w-6" />, 
+                href: "/actualites/salon-automobile-reims-2024"
               },
               {
                 title: "Partenariat Concessionnaires Marne",
@@ -712,7 +685,8 @@ export default function ClientPage() {
                 category: "Partenariat",
                 excerpt: "Extension de notre réseau de partenaires concessionnaires dans le département de la Marne.",
                 location: "Châlons-en-Champagne",
-                icon: <Building2 className="h-6 w-6" />
+                icon: <Building2 className="h-6 w-6" />, 
+                href: "/actualites/extension-reseau-partenaires"
               },
               {
                 title: "Service Express Épernay",
@@ -720,7 +694,8 @@ export default function ClientPage() {
                 category: "Service",
                 excerpt: "Ouverture d'un nouveau point de service express à Épernay pour vos démarches CPI WW.",
                 location: "Épernay, Marne",
-                icon: <Zap className="h-6 w-6" />
+                icon: <Zap className="h-6 w-6" />, 
+                href: "/actualites/nouveau-service-epernay"
               },
               {
                 title: "Formation Professionnels Auto",
@@ -728,7 +703,8 @@ export default function ClientPage() {
                 category: "Formation",
                 excerpt: "Session de formation gratuite pour les professionnels de l'automobile sur les nouvelles procédures.",
                 location: "Reims",
-                icon: <Users className="h-6 w-6" />
+                icon: <Users className="h-6 w-6" />, 
+                href: "/actualites/formation-professionnels-automobile"
               },
               {
                 title: "Digitalisation des Démarches",
@@ -736,7 +712,8 @@ export default function ClientPage() {
                 category: "Innovation",
                 excerpt: "Lancement de notre nouvelle plateforme digitale pour simplifier vos démarches d'immatriculation.",
                 location: "Service en ligne",
-                icon: <Globe className="h-6 w-6" />
+                icon: <Globe className="h-6 w-6" />, 
+                href: "/actualites/plateforme-digitale"
               }
             ].map((news, index) => (
               <motion.div
@@ -758,7 +735,9 @@ export default function ClientPage() {
                   </div>
                   
                   <h3 className="text-xl font-bold mb-3 group-hover:text-blue-600 transition-colors duration-300">
-                    {news.title}
+                    <Link href={news.href} className="hover:underline">
+                      {news.title}
+                    </Link>
                   </h3>
                   
                   <p className="text-gray-600 mb-4 line-clamp-3">
@@ -806,7 +785,7 @@ export default function ClientPage() {
               {
                 icon: BadgeCheck,
                 title: "Service Agréé SIV",
-                description: "Habilitation officielle n°279558 pour tous services carte grise",
+                description: "Habilitation officielle n° 279558 pour tous services carte grise",
                 color: "from-green-500 to-emerald-600"
               },
               {
@@ -880,9 +859,9 @@ export default function ClientPage() {
       <AnimatedSection className="py-32 bg-muted/30">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-20">
-            <h2 className="text-4xl lg:text-5xl font-bold mb-6">Questions fréquentes sur le CPI WW à Reims</h2>
+            <h2 className="text-4xl lg:text-5xl font-bold mb-6">Questions fréquentes sur le CPI WW à Reims & Metz</h2>
             <p className="text-xl text-muted-foreground">
-              Trouvez rapidement les réponses à vos questions sur l'immatriculation temporaire dans la Marne
+              Tout savoir sur l'immatriculation temporaire dans la Marne (Reims) et la Moselle (Metz)
             </p>
           </div>
 
@@ -899,23 +878,23 @@ export default function ClientPage() {
                     "name": "Qu'est-ce qu'un CPI WW ?",
                     "acceptedAnswer": {
                       "@type": "Answer",
-                      "text": "Le CPI WW (Certificat Provisoire d'Immatriculation WW) est un document officiel qui permet de circuler temporairement en France avec un véhicule importé, en attendant l'immatriculation définitive."
+                      "text": "Le CPI WW (Certificat Provisoire d'Immatriculation WW) est un document officiel qui permet de circuler temporairement en France avec un véhicule importé, en attendant l'immatriculation définitive. Disponible à Reims et à Metz via notre service agréé."
                     }
                   },
                   {
                     "@type": "Question",
-                    "name": "Combien de temps faut-il pour obtenir le certificat ?",
+                    "name": "Combien de temps faut-il pour obtenir le certificat à Reims ou Metz ?",
                     "acceptedAnswer": {
                       "@type": "Answer",
-                      "text": "Le délai standard est de 24 à 48 heures ouvrées après réception de votre dossier complet. Nous proposons également un service express en 24h."
+                      "text": "Le délai standard est de 24 à 48 heures ouvrées après réception de votre dossier complet. À Reims et Metz, nous proposons également un service express en 24h selon la disponibilité."
                     }
                   },
                   {
                     "@type": "Question",
-                    "name": "Quels documents sont nécessaires ?",
+                    "name": "Quels documents sont nécessaires pour un CPI WW à Reims & Metz ?",
                     "acceptedAnswer": {
                       "@type": "Answer",
-                      "text": "Vous devez fournir la carte grise étrangère, un justificatif d'identité, un justificatif de domicile, et selon le cas, un certificat de conformité européen."
+                      "text": "Vous devez fournir la carte grise étrangère, un justificatif d'identité, un justificatif de domicile, et selon le cas, un certificat de conformité européen. À Reims et Metz, nous vérifions votre dossier avant dépôt pour accélérer le traitement."
                     }
                   },
                   {
@@ -931,7 +910,7 @@ export default function ClientPage() {
                     "name": "Que se passe-t-il après l'expiration du CPI WW ?",
                     "acceptedAnswer": {
                       "@type": "Answer",
-                      "text": "Vous devez effectuer l'immatriculation définitive française avant l'expiration. Nous pouvons vous accompagner dans cette démarche."
+                      "text": "Vous devez effectuer l'immatriculation définitive française avant l'expiration. Nous pouvons vous accompagner dans cette démarche, y compris à Reims et à Metz."
                     }
                   },
                   {
@@ -939,7 +918,7 @@ export default function ClientPage() {
                     "name": "Comment faire un changement de carte grise ?",
                     "acceptedAnswer": {
                       "@type": "Answer",
-                      "text": "Pour un changement de carte grise (changement de propriétaire), vous devez fournir l'ancienne carte grise, un certificat de cession, une pièce d'identité et un justificatif de domicile. Notre service agréé traite votre dossier en 24-48h."
+                      "text": "Pour un changement de carte grise (changement de propriétaire), vous devez fournir l'ancienne carte grise, un certificat de cession, une pièce d'identité et un justificatif de domicile. Notre service agréé traite votre dossier en 24-48h à Reims et à Metz."
                     }
                   },
                   {
@@ -947,7 +926,7 @@ export default function ClientPage() {
                     "name": "Combien coûte un duplicata de carte grise ?",
                     "acceptedAnswer": {
                       "@type": "Answer",
-                      "text": "Le prix d'un duplicata de carte grise comprend les taxes officielles plus nos frais de service. Contactez-nous pour un devis personnalisé selon votre véhicule et votre situation."
+                      "text": "Le prix d'un duplicata de carte grise comprend les taxes officielles plus nos frais de service. Contactez-nous pour un devis personnalisé selon votre véhicule et votre situation à Reims ou à Metz."
                     }
                   },
                   {
@@ -955,7 +934,7 @@ export default function ClientPage() {
                     "name": "Que faire en cas de carte grise perdue ou volée ?",
                     "acceptedAnswer": {
                       "@type": "Answer",
-                      "text": "En cas de carte grise perdue ou volée, vous devez faire une déclaration en préfecture ou gendarmerie, puis demander un duplicata. Nous nous occupons de toutes les démarches pour vous."
+                      "text": "En cas de carte grise perdue ou volée, vous devez faire une déclaration en préfecture ou gendarmerie, puis demander un duplicata. Nous nous occupons de toutes les démarches pour vous, avec prise en charge à Reims et à Metz."
                     }
                   },
                   {
@@ -963,27 +942,27 @@ export default function ClientPage() {
                     "name": "Comment changer l'adresse sur ma carte grise ?",
                     "acceptedAnswer": {
                       "@type": "Answer",
-                      "text": "Pour un changement d'adresse carte grise, vous devez le faire dans le mois suivant votre déménagement. Nous traitons rapidement votre demande avec les nouveaux justificatifs de domicile."
+                      "text": "Pour un changement d'adresse carte grise, vous devez le faire dans le mois suivant votre déménagement. Nous traitons rapidement votre demande avec les nouveaux justificatifs de domicile pour Reims et Metz."
                     }
                   }
-                ]
-              })
-            }}
+              ]
+            })
+          }}
           />
 
           <div className="space-y-4">
             {[
               {
                 question: "Qu'est-ce qu'un CPI WW ?",
-                answer: "Le CPI WW (Certificat Provisoire d'Immatriculation WW) est un document officiel qui permet de circuler temporairement en France avec un véhicule importé, en attendant l'immatriculation définitive."
+                answer: "Le CPI WW (Certificat Provisoire d'Immatriculation WW) est un document officiel qui permet de circuler temporairement en France avec un véhicule importé, en attendant l'immatriculation définitive. Disponible à Reims et à Metz via notre service agréé."
               },
               {
-                question: "Combien de temps faut-il pour obtenir le certificat ?",
-                answer: "Le délai standard est de 24 à 48 heures ouvrées après réception de votre dossier complet. Nous proposons également un service express en 24h."
+                question: "Combien de temps faut-il pour obtenir le certificat à Reims ou Metz ?",
+                answer: "Le délai standard est de 24 à 48 heures ouvrées après réception de votre dossier complet. À Reims et Metz, nous proposons également un service express en 24h selon la disponibilité."
               },
               {
-                question: "Quels documents sont nécessaires ?",
-                answer: "Vous devez fournir la carte grise étrangère, un justificatif d'identité, un justificatif de domicile, et selon le cas, un certificat de conformité européen."
+                question: "Quels documents sont nécessaires pour un CPI WW à Reims & Metz ?",
+                answer: "Vous devez fournir la carte grise étrangère, un justificatif d'identité, un justificatif de domicile, et selon le cas, un certificat de conformité européen. À Reims et Metz, nous vérifions votre dossier avant dépôt pour accélérer le traitement."
               },
               {
                 question: "Le CPI WW est-il valable dans toute l'Europe ?",
@@ -991,23 +970,23 @@ export default function ClientPage() {
               },
               {
                 question: "Que se passe-t-il après l'expiration du CPI WW ?",
-                answer: "Vous devez effectuer l'immatriculation définitive française avant l'expiration. Nous pouvons vous accompagner dans cette démarche."
+                answer: "Vous devez effectuer l'immatriculation définitive française avant l'expiration. Nous pouvons vous accompagner dans cette démarche, y compris à Reims et à Metz."
               },
               {
                 question: "Comment faire un changement de carte grise ?",
-                answer: "Pour un changement de carte grise (changement de propriétaire), vous devez fournir l'ancienne carte grise, un certificat de cession, une pièce d'identité et un justificatif de domicile. Notre service agréé traite votre dossier en 24-48h."
+                answer: "Pour un changement de carte grise (changement de propriétaire), vous devez fournir l'ancienne carte grise, un certificat de cession, une pièce d'identité et un justificatif de domicile. Notre service agréé traite votre dossier en 24-48h à Reims et à Metz."
               },
               {
                 question: "Combien coûte un duplicata de carte grise ?",
-                answer: "Le prix d'un duplicata de carte grise comprend les taxes officielles plus nos frais de service. Contactez-nous pour un devis personnalisé selon votre véhicule et votre situation."
+                answer: "Le prix d'un duplicata de carte grise comprend les taxes officielles plus nos frais de service. Contactez-nous pour un devis personnalisé selon votre véhicule et votre situation à Reims ou à Metz."
               },
               {
                 question: "Que faire en cas de carte grise perdue ou volée ?",
-                answer: "En cas de carte grise perdue ou volée, vous devez faire une déclaration en préfecture ou gendarmerie, puis demander un duplicata. Nous nous occupons de toutes les démarches pour vous."
+                answer: "En cas de carte grise perdue ou volée, vous devez faire une déclaration en préfecture ou gendarmerie, puis demander un duplicata. Nous nous occupons de toutes les démarches pour vous, avec prise en charge à Reims et à Metz."
               },
               {
                 question: "Comment changer l'adresse sur ma carte grise ?",
-                answer: "Pour un changement d'adresse carte grise, vous devez le faire dans le mois suivant votre déménagement. Nous traitons rapidement votre demande avec les nouveaux justificatifs de domicile."
+                answer: "Pour un changement d'adresse carte grise, vous devez le faire dans le mois suivant votre déménagement. Nous traitons rapidement votre demande avec les nouveaux justificatifs de domicile pour Reims et Metz."
               }
             ].map((faq, index) => (
               <motion.div
@@ -1068,7 +1047,7 @@ export default function ClientPage() {
       <AnimatedSection className="py-32 bg-gradient-to-br from-blue-50 to-indigo-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-20">
-            <h2 className="text-4xl lg:text-5xl font-bold mb-6">CPI WW dans la Marne</h2>
+            <h2 className="text-4xl lg:text-5xl font-bold mb-6">CPI WW dans la Marne & en Moselle</h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
               Service d'immatriculation temporaire disponible dans toutes les principales villes de la région
             </p>
@@ -1090,6 +1069,15 @@ export default function ClientPage() {
                 city: "Épernay",
                 description: "CPI WW disponible dans la capitale du Champagne. Expertise pour véhicules de prestige et importés.",
                 highlights: ["Véhicules prestige", "Expertise reconnue", "Service personnalisé"]
+              },
+              {
+                city: "Metz",
+                description: "Service CPI WW et carte grise dans la capitale de la Moselle. Traitement express 24-48h pour vos véhicules importés et vos démarches d'immatriculation.",
+                highlights: [
+                  "Intervention à Metz centre-ville, Montigny-lès-Metz, Woippy, Marly, Moulins-lès-Metz, Saint-Julien-lès-Metz et communes voisines",
+                  "Service rapide et sécurisé",
+                  "Agglomération messine"
+                ]
               },
               {
                 city: "Witry-lès-Reims",
@@ -1138,11 +1126,9 @@ export default function ClientPage() {
 
           <div className="text-center mt-16">
             <div className="bg-white rounded-2xl p-8 shadow-lg border border-blue-100 max-w-4xl mx-auto">
-              <h3 className="text-2xl font-bold text-blue-900 mb-4">Couverture complète de la Marne</h3>
+              <h3 className="text-2xl font-bold text-blue-900 mb-4">Couverture complète Marne & Moselle</h3>
               <p className="text-gray-600 leading-relaxed mb-6">
-                Notre service CPI WW couvre l'ensemble du département de la Marne avec une attention particulière 
-                pour l'agglomération rémoise. Nous intervenons également dans les communes limitrophes pour 
-                vos démarches d'immatriculation temporaire.
+                Notre service CPI WW couvre l'ensemble du département de la Marne avec une attention particulière pour l'agglomération rémoise, ainsi que la Moselle autour de Metz. Nous intervenons également dans les communes limitrophes de Reims et de Metz pour vos démarches d'immatriculation temporaire.
               </p>
               <Link href="/contact">
                 <Button size="lg" className="bg-blue-600 hover:bg-blue-700">
@@ -1169,7 +1155,15 @@ export default function ClientPage() {
                 </div>
               </div>
               <p className="text-primary-foreground/80 leading-relaxed">
-                Service professionnel d'immatriculation temporaire CPI WW à Reims et dans la Marne.
+                Service{" "}
+                <Button
+                  asChild
+                  variant="link"
+                  className="p-0 h-auto align-baseline text-primary-foreground underline hover:text-primary-foreground"
+                >
+                  <Link href="/admin/login">professionnel</Link>
+                </Button>{" "}
+                d'immatriculation temporaire CPI WW à Reims et dans la Marne.
               </p>
             </div>
 
@@ -1179,6 +1173,21 @@ export default function ClientPage() {
                 <li>
                   <Link href="/boutique" className="hover:text-primary-foreground transition-colors">
                     CPI WW
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/carte-grise-reims" className="hover:text-primary-foreground transition-colors">
+                    Carte Grise Reims
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/carte-grise-metz" className="hover:text-primary-foreground transition-colors">
+                    Carte Grise Metz
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/cpi-ww-metz" className="hover:text-primary-foreground transition-colors">
+                    CPI WW Metz
                   </Link>
                 </li>
                 <li>

@@ -63,7 +63,7 @@ export default function BoutiqueClientPage() {
                   <CardTitle className="text-2xl">CPI WW</CardTitle>
                   <CardDescription className="text-base">Certificat provisoire d'immatriculation</CardDescription>
                   <div className="pt-4">
-                    <span className="text-4xl font-bold">79.95€</span>
+                    <span className="text-4xl font-bold">99.95€</span>
                     <span className="text-muted-foreground"> TTC</span>
                   </div>
                 </CardHeader>

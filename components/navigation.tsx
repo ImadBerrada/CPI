@@ -18,6 +18,10 @@ export function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
   const pathname = usePathname()
 
+  if (pathname?.startsWith("/admin")) {
+    return null
+  }
+
   return (
     <>
       <nav className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-border shadow-sm">

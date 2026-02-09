@@ -2,64 +2,55 @@ import type { Metadata } from "next"
 import ClientPage from "./client-page"
 
 export const metadata: Metadata = {
-  title: "Carte Grise Reims en Ligne - CPI WW | Changement Carte Grise & Immatriculation Temporaire Marne | Service Agréé SIV",
+  title: "CPI WW Reims & Metz – Carte Grise Marne & Moselle | Service Rapide Agréé",
   description:
-    "Service professionnel carte grise en ligne et immatriculation temporaire CPI WW à Reims et dans la Marne. Changement carte grise, duplicata carte grise, carte grise temporaire. Traitement 24-48h pour Witry-lès-Reims, Cormontreuil, Bezannes, Châlons-en-Champagne, Épernay.",
+    "Service professionnel d'immatriculation temporaire CPI WW et de carte grise à Reims, Metz et dans le Grand Est. Changement de carte grise, duplicata, carte grise perdue ou volée. Intervention rapide à Witry-lès-Reims, Cormontreuil, Bezannes, Châlons-en-Champagne, Épernay, Metz, Montigny-lès-Metz, Woippy, Marly, Moulins-lès-Metz, Saint-Julien-lès-Metz.",
   keywords: [
     "carte grise Reims",
-    "carte grise en ligne",
+    "carte grise Metz",
+    "carte grise Marne",
+    "carte grise Moselle",
     "changement carte grise",
     "duplicata carte grise",
     "carte grise perdue",
     "carte grise volée",
     "première immatriculation",
-    "carte grise neuve",
     "CPI WW Reims",
+    "CPI WW Metz",
     "immatriculation temporaire Reims",
-    "carte grise temporaire Reims",
-    "carte grise Marne",
-    "bureau carte grise Reims",
-    "service carte grise Reims",
-    "carte grise rapide Reims",
-    "démarches carte grise",
-    "carte grise 24h",
-    "carte grise express",
-    "carte grise urgente",
-    "véhicules importés Marne",
-    "SIV 279558 Reims",
-    "import automobile Reims",
-    "plaques WW Reims",
-    "certificat provisoire Reims",
-    "immatriculation Witry-lès-Reims",
-    "carte grise Cormontreuil",
-    "CPI WW Châlons-en-Champagne",
-    "immatriculation Épernay",
-    "service agréé Marne",
-    "carte grise Châlons-en-Champagne",
-    "carte grise Épernay",
-    "bureau immatriculation Reims",
-    "carte grise prix",
-    "tarif carte grise",
-    "coût carte grise"
+    "immatriculation temporaire Metz",
+    "plaques WW",
+    "certificat provisoire WW",
+    "Witry-lès-Reims",
+    "Cormontreuil",
+    "Bezannes",
+    "Châlons-en-Champagne",
+    "Épernay",
+    "Montigny-lès-Metz",
+    "Woippy",
+    "Marly",
+    "Moulins-lès-Metz",
+    "Saint-Julien-lès-Metz",
+    "service agréé Grand Est"
   ],
   openGraph: {
-    title: "Carte Grise Reims en Ligne - CPI WW | Changement Carte Grise & Immatriculation Temporaire Marne | Service Agréé SIV",
+    title: "CPI WW Reims & Metz – Carte Grise Marne & Moselle | Service Rapide",
     description:
-      "Service professionnel carte grise en ligne et immatriculation temporaire CPI WW à Reims et dans la Marne. Changement carte grise, duplicata carte grise. Traitement 24-48h dans toute l'agglomération rémoise.",
+      "Immatriculation temporaire CPI WW et carte grise à Reims, Metz et dans le Grand Est. Démarches rapides et sécurisées (24-48h).",
     url: "https://www.bureau-immatriculation.fr",
     images: [
       {
         url: "/european-car-registration-office-professional.jpg",
         width: 1200,
         height: 630,
-        alt: "Bureau professionnel CPI WW Reims pour immatriculation temporaire dans la Marne",
+        alt: "Bureau professionnel CPI WW à Reims et Metz pour immatriculation temporaire dans la Marne et la Moselle",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Carte Grise Reims en Ligne - CPI WW | Changement & Duplicata Carte Grise | Immatriculation Temporaire Marne",
-    description: "Service professionnel carte grise en ligne et immatriculation temporaire CPI WW à Reims et dans la Marne. Changement carte grise, duplicata carte grise. Traitement rapide 24-48h.",
+    title: "CPI WW Reims & Metz – Carte Grise Marne & Moselle",
+    description: "Service carte grise et CPI WW à Reims, Metz et dans le Grand Est. Traitement rapide 24-48h.",
   },
   alternates: {
     canonical: "https://www.bureau-immatriculation.fr",
@@ -75,8 +66,8 @@ export default function HomePage() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "ProfessionalService",
-            name: "CPI WW Reims - Service Carte Grise Agréé",
-  description: "Service professionnel d'immatriculation temporaire CPI WW et de carte grise à Reims et dans la Marne. Changement carte grise, duplicata carte grise, carte grise perdue ou volée, première immatriculation, changement d'adresse carte grise. Bureau carte grise agréé SIV.",
+            name: "CPI WW Reims & Metz - Service Carte Grise Agréé",
+  description: "Service professionnel d'immatriculation temporaire CPI WW et de carte grise à Reims, Metz et dans le Grand Est. Changement de carte grise, duplicata, carte grise perdue ou volée, première immatriculation, changement d'adresse. Bureau carte grise agréé SIV.",
             url: "https://bureau-immatriculation.fr",
             logo: "https://bureau-immatriculation.fr/logo.png",
             image: "https://bureau-immatriculation.fr/european-car-registration-office-professional.jpg",
@@ -126,6 +117,36 @@ export default function HomePage() {
               {
                 "@type": "City",
                 name: "Épernay",
+                addressCountry: "FR"
+              },
+              {
+                "@type": "City",
+                name: "Metz",
+                addressCountry: "FR"
+              },
+              {
+                "@type": "City",
+                name: "Montigny-lès-Metz",
+                addressCountry: "FR"
+              },
+              {
+                "@type": "City",
+                name: "Woippy",
+                addressCountry: "FR"
+              },
+              {
+                "@type": "City",
+                name: "Marly",
+                addressCountry: "FR"
+              },
+              {
+                "@type": "City",
+                name: "Moulins-lès-Metz",
+                addressCountry: "FR"
+              },
+              {
+                "@type": "City",
+                name: "Saint-Julien-lès-Metz",
                 addressCountry: "FR"
               }
             ],

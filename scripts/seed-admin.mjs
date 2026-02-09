@@ -27,8 +27,8 @@ async function ensureSchema() {
 
 async function seedAdmin() {
   await ensureSchema()
-  const email = "admin@cpi.com"
-  const password = "oussama2025"
+  const email = "contact@bureau-immatriculation.fr"
+  const password = "32Ruemaran.42"
   const { hash, salt } = hashPassword(password)
   const id = crypto.randomUUID()
   await pool.query(

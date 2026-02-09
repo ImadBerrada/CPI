@@ -64,11 +64,11 @@ export function OrderFormButton() {
             </div>
             <div>
               <Label htmlFor="city">Ville</Label>
-              <Input id="city" name="city" placeholder="Reims" />
+              <Input id="city" name="city" placeholder="Ville" />
             </div>
             <div>
               <Label htmlFor="postal_code">Code postal</Label>
-              <Input id="postal_code" name="postal_code" placeholder="51100" />
+              <Input id="postal_code" name="postal_code" placeholder="Code postal" />
             </div>
           </div>
 

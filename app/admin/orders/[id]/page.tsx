@@ -3,6 +3,8 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { AdminNav } from "@/components/admin-nav"
 import Link from "next/link"
 
+export const dynamic = "force-dynamic"
+
 type OrderDetail = {
   id: string
   service_type: string | null

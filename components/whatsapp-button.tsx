@@ -2,8 +2,12 @@
 
 import { Button } from "@/components/ui/button";
 import { MessageCircle } from "lucide-react";
+import { usePathname } from "next/navigation";
 
 export function WhatsAppButton() {
+  const pathname = usePathname();
+  if (pathname?.startsWith("/admin")) return null;
+
   const phoneNumber = "+330756898950";
   const message = "Bonjour, je suis intéressé(e) par vos services.";
   const whatsappLink = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;

@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     "service carte grise Reims",
     "mentions légales", 
     "RGPD", 
-    "agrément SIV 279558"
+    "agrément SIV  279558"
   ],
   openGraph: {
     title: "Contact Bureau Carte Grise Reims - Service Client Carte Grise & Mentions Légales",

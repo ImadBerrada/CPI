@@ -1,6 +1,6 @@
 "use client"
 
-import { createContext, useContext, useState, useCallback } from "react"
+import { createContext, useContext, useState, useCallback, useMemo } from "react"
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -24,6 +24,103 @@ export function OrderFormProvider({ children }: { children: React.ReactNode }) {
     if (type) setServiceType(type)
     setOpen(true)
   }, [])
+
+  function normalizeServiceType(type: string): "cpi-ww" | "carte-grise" | "cession" | "kbis" | "changement-adresse" | "quitus-fiscal" | "autre" {
+    const t = (type || "").toLowerCase()
+    if (t.includes("cpi") && t.includes("ww")) return "cpi-ww"
+    if (t.includes("carte") && t.includes("grise")) return "carte-grise"
+    if (t.includes("cession")) return "cession"
+    if (t.includes("kbis")) return "kbis"
+    if (t.includes("changement") && t.includes("adresse")) return "changement-adresse"
+    if (t.includes("quitus")) return "quitus-fiscal"
+    return "autre"
+  }
+
+  const docsByService = useMemo(() => {
+    const common = [
+      { name: "permis_recto", label: "Permis (recto)" },
+      { name: "permis_verso", label: "Permis (verso)" },
+      { name: "identite_recto", label: "Pièce d’identité (recto)" },
+      { name: "identite_verso", label: "Pièce d’identité (verso)" },
+      { name: "justificatif_domicile", label: "Justificatif de domicile (<6 mois)" },
+      { name: "assurance", label: "Assurance" },
+      { name: "controle_technique", label: "Contrôle technique" },
+      { name: "acte_de_vente", label: "Acte de vente" },
+    ] as const
+
+    const cession = [
+      { name: "carte_grise", label: "Carte grise" },
+      { name: "acte_de_vente", label: "Acte de vente" },
+      { name: "identite_recto", label: "Pièce d’identité du vendeur (recto)" },
+      { name: "identite_verso", label: "Pièce d’identité du vendeur (verso)" },
+    ] as const
+
+    const cpiWw = [
+      { name: "carte_grise", label: "Carte grise (deux volets)" },
+      { name: "acte_de_vente", label: "Acte de vente" },
+      { name: "assurance", label: "Assurance" },
+      { name: "permis_recto", label: "Permis (recto)" },
+      { name: "permis_verso", label: "Permis (verso)" },
+      { name: "identite_recto", label: "Pièce d’identité (recto)" },
+      { name: "identite_verso", label: "Pièce d’identité (verso)" },
+      { name: "justificatif_domicile", label: "Justificatif de domicile (<6 mois)" },
+    ] as const
+
+    const carteGrise = [
+      { name: "permis_recto", label: "Permis (recto)" },
+      { name: "permis_verso", label: "Permis (verso)" },
+      { name: "identite_recto", label: "Pièce d’identité (recto)" },
+      { name: "identite_verso", label: "Pièce d’identité (verso)" },
+      { name: "justificatif_domicile", label: "Justificatif de domicile (<6 mois)" },
+      { name: "assurance", label: "Assurance" },
+      { name: "controle_technique", label: "Contrôle technique" },
+      { name: "acte_de_vente", label: "Acte de vente" },
+    ] as const
+
+    const kbis = [
+      { name: "identite_recto", label: "Pièce d’identité de l’acquéreur (recto)" },
+      { name: "identite_verso", label: "Pièce d’identité de l’acquéreur (verso)" },
+      { name: "carte_grise", label: "Carte grise" },
+      { name: "cession", label: "Déclaration de cession" },
+    ] as const
+
+    const changementAdresse = [
+      { name: "identite_recto", label: "Pièce d’identité (recto)" },
+      { name: "identite_verso", label: "Pièce d’identité (verso)" },
+      { name: "carte_grise", label: "Carte grise" },
+      { name: "justificatif_domicile", label: "Justificatif de domicile (nouvelle adresse, <6 mois)" },
+    ] as const
+
+    const quitusFiscal = [
+      { name: "carte_grise", label: "Carte grise" },
+      { name: "identite_recto", label: "Pièce d’identité (recto)" },
+      { name: "identite_verso", label: "Pièce d’identité (verso)" },
+      { name: "permis_recto", label: "Permis (recto)" },
+      { name: "permis_verso", label: "Permis (verso)" },
+      { name: "justificatif_domicile", label: "Justificatif de domicile (<6 mois)" },
+      { name: "certificat_conformite", label: "Certificat de conformité" },
+      { name: "acte_de_vente", label: "Acte de vente" },
+      { name: "assurance", label: "Assurance" },
+    ] as const
+
+    const normalized = normalizeServiceType(serviceType)
+    switch (normalized) {
+      case "cession":
+        return cession
+      case "cpi-ww":
+        return cpiWw
+      case "carte-grise":
+        return carteGrise
+      case "kbis":
+        return kbis
+      case "changement-adresse":
+        return changementAdresse
+      case "quitus-fiscal":
+        return quitusFiscal
+      default:
+        return common
+    }
+  }, [serviceType])
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
@@ -78,11 +175,11 @@ export function OrderFormProvider({ children }: { children: React.ReactNode }) {
               </div>
               <div>
                 <Label htmlFor="city">Ville</Label>
-                <Input id="city" name="city" placeholder="Reims" />
+                <Input id="city" name="city" placeholder="Ville" />
               </div>
               <div>
                 <Label htmlFor="postal_code">Code postal</Label>
-                <Input id="postal_code" name="postal_code" placeholder="51100" />
+                <Input id="postal_code" name="postal_code" placeholder="Code postal" />
               </div>
             </div>
 
@@ -94,38 +191,12 @@ export function OrderFormProvider({ children }: { children: React.ReactNode }) {
             <div className="space-y-2">
               <p className="text-sm font-medium">Documents (formats: PDF, JPG, PNG)</p>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div>
-                  <Label htmlFor="permis_recto">Permis (recto)</Label>
-                  <Input id="permis_recto" name="permis_recto" type="file" accept=".pdf,image/*" />
-                </div>
-                <div>
-                  <Label htmlFor="permis_verso">Permis (verso)</Label>
-                  <Input id="permis_verso" name="permis_verso" type="file" accept=".pdf,image/*" />
-                </div>
-                <div>
-                  <Label htmlFor="identite_recto">Pièce d’identité (recto)</Label>
-                  <Input id="identite_recto" name="identite_recto" type="file" accept=".pdf,image/*" />
-                </div>
-                <div>
-                  <Label htmlFor="identite_verso">Pièce d’identité (verso)</Label>
-                  <Input id="identite_verso" name="identite_verso" type="file" accept=".pdf,image/*" />
-                </div>
-                <div>
-                  <Label htmlFor="justificatif_domicile">Justificatif de domicile (&lt;6 mois)</Label>
-                  <Input id="justificatif_domicile" name="justificatif_domicile" type="file" accept=".pdf,image/*" />
-                </div>
-                <div>
-                  <Label htmlFor="assurance">Assurance</Label>
-                  <Input id="assurance" name="assurance" type="file" accept=".pdf,image/*" />
-                </div>
-                <div>
-                  <Label htmlFor="controle_technique">Contrôle technique</Label>
-                  <Input id="controle_technique" name="controle_technique" type="file" accept=".pdf,image/*" />
-                </div>
-                <div>
-                  <Label htmlFor="acte_de_vente">Acte de vente</Label>
-                  <Input id="acte_de_vente" name="acte_de_vente" type="file" accept=".pdf,image/*" />
-                </div>
+                {docsByService.map((doc) => (
+                  <div key={doc.name}>
+                    <Label htmlFor={doc.name}>{doc.label}</Label>
+                    <Input id={doc.name} name={doc.name} type="file" accept=".pdf,image/*" />
+                  </div>
+                ))}
               </div>
             </div>
 
